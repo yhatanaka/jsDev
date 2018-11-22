@@ -763,7 +763,7 @@ Child html-webpack-plugin for "index.html":
 
 ```
 
-http://localhost:3000 開くと，JavaScriptコンソールに表示されてる。
+<http://localhost:3000> 開くと，JavaScriptコンソールに表示されてる。
 
 ## 3章
 
