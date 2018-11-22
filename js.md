@@ -983,3 +983,38 @@ error Command failed with exit code 1.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 
 ```
+
+class method で this 使わないから怒られる。
+```
+$ vi src/js/index.js
+export class Hello {
+  constructor(name) {
+    this.name = name;
+    this.say();
+  }
+
+  say() {
+    console.log(`Hello ${this.name} World!`);
+  }
+}
+
+export default new Hello('Nekomimi');
+
+```
+
+も一回。
+```
+$ yarn lint:js
+yarn run v1.12.3
+$ eslint './src/js/*.{js,jsx}'
+
+/Users/hatanaka/jsDev/src/js/index.js
+  8:5  warning  Unexpected console statement  no-console
+
+✖ 1 problem (0 errors, 1 warning)
+
+✨  Done in 1.22s.
+```
+
+まずはよし，と。
+
