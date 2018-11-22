@@ -1208,3 +1208,56 @@ error Command failed with exit code 2.
 info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 ```
 
+## 4章 React
+
+追加。
+```
+$ yarn add react react-dom
+yarn add v1.12.3
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+
+success Saved lockfile.
+success Saved 2 new dependencies.
+info Direct dependencies
+├─ react-dom@16.6.3
+└─ react@16.6.3
+info All dependencies
+├─ react-dom@16.6.3
+└─ react@16.6.3
+✨  Done in 2.75s.
+```
+```
+$ yarn add --dev @babel/preset-react
+yarn add v1.12.3
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+
+success Saved lockfile.
+success Saved 6 new dependencies.
+info Direct dependencies
+└─ @babel/preset-react@7.0.0
+info All dependencies
+├─ @babel/helper-builder-react-jsx@7.0.0
+├─ @babel/plugin-transform-react-display-name@7.0.0
+├─ @babel/plugin-transform-react-jsx-self@7.0.0
+├─ @babel/plugin-transform-react-jsx-source@7.0.0
+├─ @babel/plugin-transform-react-jsx@7.1.6
+└─ @babel/preset-react@7.0.0
+✨  Done in 2.56s.
+```
+
+.babelrc に React 用設定追加。
+```
+vi .babelrc
+    "@babel/preset-react",
+```
+
+src/html/index.html
+```
+
+```

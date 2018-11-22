@@ -1,6 +1,6 @@
 [ignore]
 # Flowの対象除外ファイルパスを記述します
-
+.*/node_modules/.*
 [include]
 # ルート以外のFlowの対象ファイルパスを記述します 6:
 
