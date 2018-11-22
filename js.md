@@ -1090,3 +1090,121 @@ $ prettier --write './src/js/*.{js,jsx}'
 src/js/index.js 47ms
 ✨  Done in 0.34s.
 ```
+
+Flow 入れる。
+```
+$ yarn add --dev flow-bin @babel/preset-flow eslint-plugin-flowtype
+yarn add v1.12.3
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+
+success Saved lockfile.
+success Saved 5 new dependencies.
+info Direct dependencies
+├─ @babel/preset-flow@7.0.0
+├─ eslint-plugin-flowtype@3.2.0
+└─ flow-bin@0.86.0
+info All dependencies
+├─ @babel/plugin-syntax-flow@7.0.0
+├─ @babel/plugin-transform-flow-strip-types@7.1.6
+├─ @babel/preset-flow@7.0.0
+├─ eslint-plugin-flowtype@3.2.0
+└─ flow-bin@0.86.0
+✨  Done in 3.39s.
+```
+
+.babelrc の preset に追加。
+```
+"@babel/preset-flow"
+```
+
+ESLint とのコンフリクト解消のため eslint-plugin-flowtype 入れたので，.eslintrc に追加。
+```
+  "plugins": ["flowtype"],
+```
+
+.flowconfig 追加。
+```
+$ vi .flowconfig
+[ignore]
+# Flowの対象除外ファイルパスを記述します
+
+[include]
+# ルート以外のFlowの対象ファイルパスを記述します 6:
+
+[libs]
+# 外部のFlow定義等のファイルパスを記述します 9:
+
+[options]
+# オプションの定義を記述します
+```
+
+package.json にコマンド追加。
+```
+    "flow": "flow"
+```
+
+src/js/index.js で，Flow の使用を宣言。
+```
+// @flow
+```
+
+やってみる。
+```
+$ yarn flow
+yarn run v1.12.3
+$ flow
+Launching Flow server for /Users/hatanaka/jsDev
+Spawned flow server (pid=6304)
+Logs will go to /private/tmp/flow/zSUserszShatanakazSjsDev.log
+Monitor logs will go to /private/tmp/flow/zSUserszShatanakazSjsDev.monitor_log
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/js/index.js:3:15
+
+Missing type annotation for name.
+
+     1│ // @flow
+     2│ export class Hello {
+     3│   constructor(name) {
+     4│     this.name = name;
+     5│     this.say();
+     6│   }
+
+
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/js/index.js:4:10
+
+Cannot assign name to this.name because property name is missing in Hello [1].
+
+     1│ // @flow
+ [1] 2│ export class Hello {
+     3│   constructor(name) {
+     4│     this.name = name;
+     5│     this.say();
+     6│   }
+     7│
+
+
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/js/index.js:9:31
+
+Cannot get this.name because property name is missing in Hello [1].
+
+ [1]  2│ export class Hello {
+      3│   constructor(name) {
+      4│     this.name = name;
+      5│     this.say();
+      6│   }
+      7│
+      8│   say() {
+      9│     console.log(`Hello ${this.name} World!`);
+     10│   }
+     11│ }
+     12│
+
+
+
+Found 3 errors
+error Command failed with exit code 2.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+```
+
