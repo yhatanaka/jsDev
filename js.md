@@ -1259,5 +1259,15 @@ vi .babelrc
 
 src/html/index.html
 ```
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>React test</title>
+</head>
+<body>
+	<main id="react-test"></main>
+</body>
+</html>
 ```
+
