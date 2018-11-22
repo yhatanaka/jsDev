@@ -717,3 +717,6 @@ module.exports = {
   ]
 };
 ```
+
+```
+$ yarn serve
