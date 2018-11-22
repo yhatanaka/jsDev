@@ -443,10 +443,6 @@ webpack.config.js 追加
 ```
 vi webpack.config.js
 const path = require('path');
-// webpackモジュールを読み込む
-const webpack = require('webpack');
-// html-webpack-pluginモジュールを読み込む
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const src = path.join(__dirname, 'src');
 const dist = path.join(__dirname, 'dist');
@@ -482,16 +478,6 @@ module.exports = {
   },
   // sourceMappingの設定
   devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    contentBase: dist, // 開発サーバーを立ち上げる参照ディレクトリー
-    hot: true, // hot-reloadを有効にします
-    port: 3000 // サーバーを立ち上げるポート番号
-  },
-  plugins: [
-    // hot-reloadを有効にするプラグインを追加
-    new webpack.HotModuleReplacementPlugin(), // HtmlWebpackPluginプラグインを追加
-    new HtmlWebpackPlugin()
-  ]
 };
 ```
 
@@ -517,3 +503,18 @@ export class Hello {
 export default new Hello('Nekomimi');
 ```
 
+webpack 実行。
+```
+$ yarn build:dev
+yarn run v1.12.3
+$ webpack --config webpack.config.js
+Hash: 79a59f1ccb7a529c26f1
+Version: webpack 4.26.0
+Time: 561ms
+Built at: 2018-11-22 11:06:46
+          Asset      Size  Chunks             Chunk Names
+index.bundle.js  5.72 KiB    main  [emitted]  main
+Entrypoint main = index.bundle.js
+[./src/js/index.js] 1020 bytes {main} [built]
+✨  Done in 1.15s.
+```
