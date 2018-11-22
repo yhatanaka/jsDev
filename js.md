@@ -502,3 +502,18 @@ package.json にコマンド追加
   },
 ```
 
+src/js/inde.js 追加して
+```
+export class Hello {
+  constructor(name) {
+    this.say(name);
+  }
+
+  say(name) {
+    console.log(`Hello ${name} World!`);
+  }
+}
+
+export default new Hello('Nekomimi');
+```
+
