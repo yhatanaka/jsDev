@@ -1,3 +1,6 @@
+# ネコミミでもわかるフロンドエンド開発環境構築
+
+## 2章
 
 ```
 $ yarn add --dev @babel/preset-env
@@ -720,3 +723,48 @@ module.exports = {
 
 ```
 $ yarn serve
+yarn run v1.12.3
+$ webpack-dev-server --config webpack.config.js
+ℹ ｢wds｣: Project is running at http://localhost:3000/
+ℹ ｢wds｣: webpack output is served from /
+ℹ ｢wds｣: Content not from webpack is served from /Users/hatanaka/jsDev/dist
+ℹ ｢wdm｣: Hash: caa2a9d110cfda20f433
+Version: webpack 4.26.0
+Time: 933ms
+Built at: 2018-11-22 11:26:51
+          Asset       Size  Chunks             Chunk Names
+index.bundle.js    882 KiB    main  [emitted]  main
+     index.html  188 bytes          [emitted]  
+Entrypoint main = index.bundle.js
+[0] multi (webpack)-dev-server/client?http://localhost:3000 (webpack)/hot/dev-server.js ./src/js/index.js 52 bytes {main} [built]
+[./node_modules/ansi-html/index.js] 4.16 KiB {main} [built]
+[./node_modules/ansi-regex/index.js] 135 bytes {main} [built]
+[./node_modules/loglevel/lib/loglevel.js] 7.68 KiB {main} [built]
+[./node_modules/strip-ansi/index.js] 161 bytes {main} [built]
+[./node_modules/url/url.js] 22.8 KiB {main} [built]
+[./node_modules/webpack-dev-server/client/index.js?http://localhost:3000] (webpack)-dev-server/client?http://localhost:3000 7.78 KiB {main} [built]
+[./node_modules/webpack-dev-server/client/overlay.js] (webpack)-dev-server/client/overlay.js 3.58 KiB {main} [built]
+[./node_modules/webpack-dev-server/client/socket.js] (webpack)-dev-server/client/socket.js 1.05 KiB {main} [built]
+[./node_modules/webpack/hot sync ^\.\/log$] (webpack)/hot sync nonrecursive ^\.\/log$ 170 bytes {main} [built]
+[./node_modules/webpack/hot/dev-server.js] (webpack)/hot/dev-server.js 1.61 KiB {main} [built]
+[./node_modules/webpack/hot/emitter.js] (webpack)/hot/emitter.js 75 bytes {main} [built]
+[./node_modules/webpack/hot/log-apply-result.js] (webpack)/hot/log-apply-result.js 1.27 KiB {main} [built]
+[./node_modules/webpack/hot/log.js] (webpack)/hot/log.js 1.11 KiB {main} [built]
+[./src/js/index.js] 1020 bytes {main} [built]
+    + 13 hidden modules
+Child html-webpack-plugin for "index.html":
+     1 asset
+    Entrypoint undefined = index.html
+    [./node_modules/html-webpack-plugin/lib/loader.js!./node_modules/html-webpack-plugin/default_index.ejs] 376 bytes {0} [built]
+    [./node_modules/lodash/lodash.js] 527 KiB {0} [built]
+    [./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 489 bytes {0} [built]
+    [./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes {0} [built]
+ℹ ｢wdm｣: Compiled successfully.
+
+```
+
+http://localhost:3000 開くと，JavaScriptコンソールに表示されてる。
+
+## 3章
+
+
