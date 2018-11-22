@@ -1048,5 +1048,45 @@ webpack.config.js にeslint-loader の設定追加。
         loader: 'eslint-loader'
       },
 
+```
 
+prettier 入れる。
+```
+$ yarn add --dev prettier
+yarn add v1.12.3
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+
+success Saved lockfile.
+success Saved 1 new dependency.
+info Direct dependencies
+└─ prettier@1.15.2
+info All dependencies
+└─ prettier@1.15.2
+✨  Done in 2.48s.
+```
+
+.prettierrc 作る。
+```
+vi .prettierrc
+{
+  "printWidth": 100, # 1行あたりの最大文字数(それ以降は改行します)
+  "singleQuote": true # ダブルクォートの代わりにシングルクォートを使用する
+}
+```
+
+package.json に prettier コマンド。
+```
+    "prettier": "prettier --write './src/js/*.{js,jsx}'"
+```
+
+実行。
+```
+$ yarn prettier
+yarn run v1.12.3
+$ prettier --write './src/js/*.{js,jsx}'
+src/js/index.js 47ms
+✨  Done in 0.34s.
 ```
