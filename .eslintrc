@@ -9,5 +9,8 @@
     "ecmaFeatures": {
       "jsx": true # jsxを有効化します
     }
+  },
+  "rules": {
+    "no-console": "off" # no-console off
   }
 }
