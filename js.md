@@ -1018,3 +1018,34 @@ $ eslint './src/js/*.{js,jsx}'
 
 まずはよし，と。
 
+ビルドごとに実行するために eslint-loader 入れる。
+```
+$ yarn add --dev eslint-loader
+yarn add v1.12.3
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+
+success Saved lockfile.
+info Direct dependencies
+└─ eslint-loader@2.1.1
+info All dependencies
+├─ eslint-loader@2.1.1
+├─ loader-fs-cache@1.0.1
+└─ object-hash@1.3.1
+✨  Done in 2.61s.
+```
+
+webpack.config.js にeslint-loader の設定追加。
+```
+
+     {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        enforce: 'pre', // babel-loaderよりも前に実行される
+        loader: 'eslint-loader'
+      },
+
+
+```
