@@ -1028,6 +1028,7 @@ yarn add v1.12.3
 [4/4] 📃  Building fresh packages...
 
 success Saved lockfile.
+success Saved 3 new dependencies.
 info Direct dependencies
 └─ eslint-loader@2.1.1
 info All dependencies
