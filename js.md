@@ -524,3 +524,196 @@ $ node ./dist/index.bundle.js
 Hello Nekomimi World!
 
 ```
+
+ブラウザーでの動作チェック。
+
+webpack-dev-server 追加。
+```
+$ yarn add --dev webpack-dev-server html-webpack-plugin
+yarn add v1.12.3
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+
+success Saved lockfile.
+success Saved 117 new dependencies.
+info Direct dependencies
+├─ html-webpack-plugin@3.2.0
+└─ webpack-dev-server@3.1.10
+info All dependencies
+├─ accepts@1.3.5
+├─ ansi-colors@3.2.1
+├─ ansi-html@0.0.7
+├─ array-flatten@1.1.1
+├─ array-union@1.0.2
+├─ array-uniq@1.0.3
+├─ async@1.5.2
+├─ batch@0.6.1
+├─ body-parser@1.18.3
+├─ bonjour@3.5.0
+├─ buffer-indexof@1.1.1
+├─ camel-case@3.0.0
+├─ camelcase@4.1.0
+├─ clean-css@4.2.1
+├─ compressible@2.0.15
+├─ compression@1.7.3
+├─ connect-history-api-fallback@1.5.0
+├─ content-disposition@0.5.2
+├─ cookie-signature@1.0.6
+├─ cookie@0.3.1
+├─ css-select@1.2.0
+├─ css-what@2.1.2
+├─ deep-equal@1.0.1
+├─ default-gateway@2.7.2
+├─ del@3.0.0
+├─ destroy@1.0.4
+├─ detect-node@2.0.4
+├─ dns-equal@1.0.0
+├─ dns-packet@1.3.1
+├─ dns-txt@2.0.2
+├─ dom-converter@0.2.0
+├─ dom-serializer@0.1.0
+├─ domhandler@2.1.0
+├─ domutils@1.1.6
+├─ ee-first@1.1.1
+├─ entities@1.1.2
+├─ eventemitter3@3.1.0
+├─ eventsource@1.0.7
+├─ express@4.16.4
+├─ faye-websocket@0.10.0
+├─ finalhandler@1.1.1
+├─ follow-redirects@1.5.10
+├─ forwarded@0.1.2
+├─ globby@6.1.0
+├─ handle-thing@1.2.5
+├─ he@1.2.0
+├─ hpack.js@2.1.6
+├─ html-entities@1.2.1
+├─ html-minifier@3.5.21
+├─ html-webpack-plugin@3.2.0
+├─ htmlparser2@3.3.0
+├─ http-deceiver@1.2.7
+├─ http-errors@1.6.3
+├─ http-parser-js@0.5.0
+├─ http-proxy-middleware@0.18.0
+├─ http-proxy@1.17.0
+├─ internal-ip@3.0.1
+├─ ip-regex@2.1.0
+├─ ip@1.1.5
+├─ ipaddr.js@1.8.1
+├─ is-path-cwd@1.0.0
+├─ is-path-in-cwd@1.0.1
+├─ is-path-inside@1.0.1
+├─ is-wsl@1.1.0
+├─ json3@3.3.2
+├─ killable@1.0.1
+├─ loglevel@1.6.1
+├─ lower-case@1.1.4
+├─ media-typer@0.3.0
+├─ merge-descriptors@1.0.1
+├─ methods@1.1.2
+├─ mime-db@1.37.0
+├─ mime@2.3.1
+├─ multicast-dns-service-types@1.1.0
+├─ multicast-dns@6.2.3
+├─ negotiator@0.6.1
+├─ node-forge@0.7.5
+├─ nth-check@1.0.2
+├─ obuf@1.1.2
+├─ on-headers@1.0.1
+├─ opn@5.4.0
+├─ original@1.0.2
+├─ p-map@1.2.0
+├─ param-case@2.1.1
+├─ path-is-inside@1.0.2
+├─ path-to-regexp@0.1.7
+├─ pinkie-promise@2.0.1
+├─ pinkie@2.0.4
+├─ portfinder@1.0.19
+├─ pretty-error@2.1.1
+├─ proxy-addr@2.0.4
+├─ querystringify@2.1.0
+├─ raw-body@2.3.3
+├─ relateurl@0.2.7
+├─ renderkid@2.0.2
+├─ select-hose@2.0.0
+├─ selfsigned@1.10.4
+├─ serve-index@1.9.1
+├─ serve-static@1.13.2
+├─ sockjs-client@1.3.0
+├─ sockjs@0.3.19
+├─ spdy-transport@2.1.1
+├─ spdy@3.4.7
+├─ thunky@1.0.3
+├─ toposort@1.0.7
+├─ uglify-js@3.4.9
+├─ unpipe@1.0.0
+├─ upper-case@1.1.3
+├─ utils-merge@1.0.1
+├─ uuid@3.3.2
+├─ wbuf@1.7.3
+├─ webpack-dev-middleware@3.4.0
+├─ webpack-dev-server@3.1.10
+├─ websocket-extensions@0.1.3
+├─ xregexp@4.0.0
+├─ yargs-parser@10.1.0
+└─ yargs@12.0.2
+✨  Done in 4.17s.
+```
+
+webpack.config.js に webpack-dev-server, html-webpack-plugin 追加。
+```
+vi webpack.config.js
+const path = require('path');
+// webpackモジュールを読み込む
+const webpack = require('webpack');
+// html-webpack-pluginモジュールを読み込む
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const src = path.join(__dirname, 'src');
+const dist = path.join(__dirname, 'dist');
+
+module.exports = {
+  // developmentモードで実行します
+  mode: 'development',
+  // ビルドを実行するファイルパス
+  entry: path.resolve(src, 'js/index.js'),
+  output: {
+    // 生成されるファイル名
+    filename: 'index.bundle.js',
+    // 生成先のディレクトリー
+    path: dist
+  },
+  resolve: {
+    // import文のパス指定にnode_modulesを省略できるようにします
+    modules: ['node_modules'],
+    // .jsまたは.jsxの拡張子を省略できるようにします
+    extensions: ['.js', '.jsx']
+  },
+  module: {
+    rules: [
+      {
+        // ルールを適用するファイルの正規表現
+        test: /\.(js|jsx)$/,
+        // node_modules以下のファイルには適用しないようにします
+        exclude: /node_modules/,
+        // 使用するloader
+        loader: 'babel-loader'
+      }
+    ]
+  },
+  // sourceMappingの設定
+  devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    contentBase: dist, // 開発サーバーを立ち上げる参照ディレクトリー
+    hot: true, // hot-reloadを有効にします
+    port: 3000 // サーバーを立ち上げるポート番号
+  },
+  plugins: [
+    // hot-reloadを有効にするプラグインを追加
+    new webpack.HotModuleReplacementPlugin(), // HtmlWebpackPluginプラグインを追加
+    new HtmlWebpackPlugin()
+  ]
+};
+```
