@@ -767,4 +767,219 @@ Child html-webpack-plugin for "index.html":
 
 ## 3章
 
+ESLint 入れる。
 
+eslint-config-airbnb 入れるので，依存モジュールのバージョン確認して…
+```
+$ yarn info eslint-config-airbnb peerDependencies
+yarn info v1.12.3
+{ eslint:
+   '^4.19.1 || ^5.3.0',
+  'eslint-plugin-import':
+   '^2.14.0',
+  'eslint-plugin-jsx-a11y':
+   '^6.1.1',
+  'eslint-plugin-react':
+   '^7.11.0' }
+✨  Done in 0.20s.
+```
+
+指定バージョン入れる。
+```
+$ yarn add --dev eslint-config-airbnb
+yarn add v1.12.3
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+warning "eslint-config-airbnb > eslint-config-airbnb-base@13.1.0" has unmet peer dependency "eslint@^4.19.1 || ^5.3.0".
+warning "eslint-config-airbnb > eslint-config-airbnb-base@13.1.0" has unmet peer dependency "eslint-plugin-import@^2.14.0".
+warning " > eslint-config-airbnb@17.1.0" has unmet peer dependency "eslint@^4.19.1 || ^5.3.0".
+warning " > eslint-config-airbnb@17.1.0" has unmet peer dependency "eslint-plugin-import@^2.14.0".
+warning " > eslint-config-airbnb@17.1.0" has unmet peer dependency "eslint-plugin-jsx-a11y@^6.1.1".
+warning " > eslint-config-airbnb@17.1.0" has unmet peer dependency "eslint-plugin-react@^7.11.0".
+[4/4] 📃  Building fresh packages...
+
+success Saved lockfile.
+success Saved 3 new dependencies.
+info Direct dependencies
+└─ eslint-config-airbnb@17.1.0
+info All dependencies
+├─ eslint-config-airbnb-base@13.1.0
+├─ eslint-config-airbnb@17.1.0
+└─ eslint-restricted-globals@0.1.1
+✨  Done in 2.31s.
+```
+
+忘れた。
+```
+$ yarn add --dev eslint-config-airbnb eslint@^5.3.0 eslint-plugin-import@^2.14.0 eslint-plugin-jsx-a11y@^6.1.1 eslint-plugin-react@^7.11.0 babel-eslint
+$ yarn add --dev eslint-config-airbnb eslint@^5.3.0 eslint-plugin-import@^2.14.0 eslint-plugin-jsx-a11y@^6.1.1 eslint-plugin-react@^7.11.0 babel-eslint
+yarn add v1.12.3
+[1/4] 🔍  Resolving packages...
+warning eslint > file-entry-cache > flat-cache > circular-json@0.3.3: CircularJSON is in maintenance only, flatted is its successor.
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+
+success Saved lockfile.
+success Saved 75 new dependencies.
+info Direct dependencies
+├─ babel-eslint@10.0.1
+├─ eslint-config-airbnb@17.1.0
+├─ eslint-plugin-import@2.14.0
+├─ eslint-plugin-jsx-a11y@6.1.2
+├─ eslint-plugin-react@7.11.1
+└─ eslint@5.9.0
+info All dependencies
+├─ ansi-escapes@3.1.0
+├─ argparse@1.0.10
+├─ aria-query@3.0.0
+├─ axobject-query@2.0.2
+├─ babel-eslint@10.0.1
+├─ builtin-modules@1.1.1
+├─ caller-path@0.1.0
+├─ callsites@0.2.0
+├─ chardet@0.7.0
+├─ circular-json@0.3.3
+├─ cli-cursor@2.1.0
+├─ cli-width@2.2.0
+├─ contains-path@0.1.0
+├─ damerau-levenshtein@1.0.4
+├─ deep-is@0.1.3
+├─ emoji-regex@6.5.1
+├─ error-ex@1.3.2
+├─ eslint-config-airbnb@17.1.0
+├─ eslint-import-resolver-node@0.3.2
+├─ eslint-module-utils@2.2.0
+├─ eslint-plugin-import@2.14.0
+├─ eslint-plugin-jsx-a11y@6.1.2
+├─ eslint-plugin-react@7.11.1
+├─ eslint-utils@1.3.1
+├─ eslint@5.9.0
+├─ espree@4.1.0
+├─ esprima@4.0.1
+├─ esquery@1.0.1
+├─ external-editor@3.0.3
+├─ fast-levenshtein@2.0.6
+├─ figures@2.0.0
+├─ file-entry-cache@2.0.0
+├─ flat-cache@1.3.4
+├─ functional-red-black-tree@1.0.1
+├─ hosted-git-info@2.7.1
+├─ ignore@4.0.6
+├─ inquirer@6.2.0
+├─ is-arrayish@0.2.1
+├─ is-builtin-module@1.0.0
+├─ is-promise@2.1.0
+├─ is-resolvable@1.1.0
+├─ js-yaml@3.12.0
+├─ json-stable-stringify-without-jsonify@1.0.1
+├─ levn@0.3.0
+├─ load-json-file@2.0.0
+├─ mute-stream@0.0.7
+├─ natural-compare@1.4.0
+├─ normalize-package-data@2.4.0
+├─ onetime@2.0.1
+├─ optionator@0.8.2
+├─ parse-json@2.2.0
+├─ path-type@2.0.0
+├─ pluralize@7.0.0
+├─ progress@2.0.1
+├─ prop-types@15.6.2
+├─ read-pkg-up@2.0.0
+├─ read-pkg@2.0.0
+├─ regexpp@2.0.1
+├─ require-uncached@1.0.3
+├─ resolve-from@1.0.1
+├─ restore-cursor@2.0.0
+├─ run-async@2.3.0
+├─ rxjs@6.3.3
+├─ slice-ansi@1.0.0
+├─ spdx-correct@3.0.2
+├─ spdx-exceptions@2.2.0
+├─ sprintf-js@1.0.3
+├─ strip-bom@3.0.0
+├─ table@5.1.0
+├─ text-table@0.2.0
+├─ through@2.3.8
+├─ tmp@0.0.33
+├─ validate-npm-package-license@3.0.4
+├─ wordwrap@1.0.0
+└─ write@0.2.1
+✨  Done in 7.75s.
+
+```
+
+.eslintrc 作る。
+```
+vi .eslintrc
+{
+  "extends": ["airbnb", "plugin:flowtype/recommended"], # airbnbのルールを継承します
+  "env": {
+    "browser": true, # ブラウザーのグローバル変数を有効化します
+    "es6": true # es6(es2015)の構文を有効化します
+  },
+  "parser": "babel-eslint", # babel-eslintをパーサとして使用
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true # jsxを有効化します
+    }
+  }
+}
+```
+
+package.json に lint:js コマンド追加。
+```
+  "scripts": {
+    "build:dev": "webpack --config webpack.config.js",
+    "serve": "webpack-dev-server --config webpack.config.js",
+    "lint:js": "eslint './src/js/*.{js,jsx}'"
+  },
+```
+
+ESLint 実行。
+```
+$ yarn lint:js
+yarn run v1.12.3
+$ eslint './src/js/*.{js,jsx}'
+Error: Cannot find module 'eslint-plugin-flowtype'
+Referenced from: /Users/hatanaka/jsDev/.eslintrc
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:580:15)
+    at Function.resolve (internal/modules/cjs/helpers.js:30:19)
+    at resolve (/Users/hatanaka/jsDev/node_modules/eslint/lib/config/config-file.js:475:31)
+    at load (/Users/hatanaka/jsDev/node_modules/eslint/lib/config/config-file.js:556:26)
+    at configExtends.reduceRight (/Users/hatanaka/jsDev/node_modules/eslint/lib/config/config-file.js:430:36)
+    at Array.reduceRight (<anonymous>)
+    at applyExtends (/Users/hatanaka/jsDev/node_modules/eslint/lib/config/config-file.js:408:26)
+    at loadFromDisk (/Users/hatanaka/jsDev/node_modules/eslint/lib/config/config-file.js:528:22)
+    at Object.load (/Users/hatanaka/jsDev/node_modules/eslint/lib/config/config-file.js:564:20)
+    at Config.getLocalConfigHierarchy (/Users/hatanaka/jsDev/node_modules/eslint/lib/config.js:227:44)
+error Command failed with exit code 2.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+```
+
+??
+```
+$ yarn add --dev eslint-plugin-flowtype
+ 
+```
+
+再び
+```
+$ yarn lint:js
+yarn run v1.12.3
+$ eslint './src/js/*.{js,jsx}'
+
+/Users/hatanaka/jsDev/src/js/index.js
+   6:6   error    Expected 'this' to be used by class method 'say'  class-methods-use-this
+   7:5   warning  Unexpected console statement                      no-console
+  11:38  error    Newline required at end of file but not found     eol-last
+
+✖ 3 problems (2 errors, 1 warning)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+```
