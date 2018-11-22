@@ -518,3 +518,9 @@ Entrypoint main = index.bundle.js
 [./src/js/index.js] 1020 bytes {main} [built]
 ✨  Done in 1.15s.
 ```
+
+```
+$ node ./dist/index.bundle.js
+Hello Nekomimi World!
+
+```
