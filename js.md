@@ -1271,3 +1271,8 @@ src/html/index.html
 </html>
 ```
 
+webpack.config.js に追加・変更。
+```
+      template: path.resolve(src, 'html/index.html')
+```
+
